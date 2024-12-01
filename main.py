@@ -59,7 +59,7 @@ def main():
 			for asteroid in asteroids:
 				if shot.check_colission(asteroid):
 					shot.kill()
-					asteroid.kill()
+					asteroid.split()
 
 		pygame.display.flip()
 
