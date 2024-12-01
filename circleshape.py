@@ -17,10 +17,15 @@ class CircleShape(pygame.sprite.Sprite):
         points = self.triangle()
         pygame.draw.polygon(screen, "white", points, 2)
 
-
     def update(self, dt):
         self.position.x += self.velocity.x * dt
         self.position.y += self.velocity.y * dt
     
+    def check_colission(self, other_circle):
+        distance = self.position.distance_to(other_circle.position)
+        combined_radius = self.radius + other_circle.radius
+        return distance <= combined_radius
+    
+            
             
             
