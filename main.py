@@ -4,9 +4,9 @@ from player import Player
 from circleshape import CircleShape
 
 def main():
-	print("Stating asteroids!")
+	print("Starting asteroids!")
 	print(f"Screen width: {SCREEN_WIDTH}")
-	print(f"Scren height: {SCREEN_HEIGHT}")
+	print(f"Screen height: {SCREEN_HEIGHT}")
 
 	pygame.init()
 	screen = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
@@ -14,8 +14,6 @@ def main():
 
 	clock = pygame.time.Clock()
 	dt = 0
- 
-	player.draw(screen)
 
 	while True:
 		for event in pygame.event.get():
@@ -26,6 +24,8 @@ def main():
   
 		player.draw(screen)
 		
+		player.update(dt)
+  
 		pygame.display.flip()
 
 		dt = clock.tick(60) / 1000
