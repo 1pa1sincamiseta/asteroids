@@ -5,6 +5,7 @@ from player import Player
 from circleshape import CircleShape
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
+from shot import Shot
 
 
 def main():
@@ -15,17 +16,20 @@ def main():
 	# Here is when the game begins
 	pygame.init()
  
-	# Here is the setup for the player and asteroids
+	# Here is the setup for the player
 	updatable = pygame.sprite.Group()
 	drawable = pygame.sprite.Group()
 	Player.containers = (updatable, drawable)
- 
+	
+	# Here is the setup for asteroids
 	asteroids = pygame.sprite.Group()
 	Asteroid.containers = (asteroids, updatable, drawable)
- 
 	AsteroidField.containers = (updatable)
-
 	asteroid_field = AsteroidField()
+ 
+	# Here is the setup for shots
+	shots = pygame.sprite.Group()
+	Shot.containers = (shots, updatable, drawable)
 
 	screen = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
 	player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
